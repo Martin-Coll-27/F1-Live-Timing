@@ -1,5 +1,5 @@
 class AnalyzeDriversData():
-    def set_data(self, data):
+    def setData(self, data):
         self.data = data
 
     def countDrivers(self):
@@ -10,6 +10,7 @@ class AnalyzeDriversData():
         
         return cant_drivers
      
+
     def countTeams(self):
         cant_teams = 0
         teams = list()        
@@ -22,7 +23,8 @@ class AnalyzeDriversData():
         
         return cant_teams
     
-    def getDriversDict(self):
+
+    def getDriversList(self):
         drivers_data = list()
         
         for piloto in self.data:

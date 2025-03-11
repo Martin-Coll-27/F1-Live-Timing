@@ -1,37 +1,31 @@
-from GetDrivers import GetDrivers
-from AnalyzeData import AnalyzeDriversData
-from GetMeetings import GetMeetings
-from GetSessions import GetSessions
-from AnalyzeGP import AnalyzeGP
+from Information import Information
+from DriversMaster import Driver
 
-class Information(GetSessions, GetMeetings, AnalyzeGP, GetDrivers, AnalyzeDriversData):
-    def __init__(self):
-        GetMeetings.__init__(self)
-        GetSessions.__init__(self)
-        GetDrivers.__init__(self)
-        AnalyzeDriversData.__init__(self)
-        AnalyzeGP.__init__(self)
+Drivers_List_Data = [('Red Bull Racing', 1, 'VER'), ('McLaren', 4, 'NOR'), ('Kick Sauber', 5, 'BOR'), ('Racing Bulls', 6, 'HAD'), ('Alpine', 7, 'DOO'), ('Alpine', 10, 'GAS'), ('Mercedes', 12, 'ANT'), ('Aston Martin', 14, 'ALO'), ('Ferrari', 16, 'LEC'), ('Aston Martin', 18, 'STR'), ('Racing Bulls', 22, 'TSU'), ('Williams', 23, 'ALB'), ('Kick Sauber', 27, 'HUL'), ('Haas F1 Team', 31, 'OCO'), ('Ferrari', 44, 'HAM'), ('Mercedes', 63, 'RUS'), ('McLaren', 81, 'PIA'), ('Haas F1 Team', 87, 'BEA')]   
 
 if __name__ == '__main__':
-    A = Information()
+    GP_Info = Information()
+
+    GP_Info.getSessionHeader()
+    print(GP_Info.session_header)    
+
+    Drivers_List_Data = GP_Info.getParticipantsInfo()
 
 
-'''
-    C = A.getMeetingsURL()
-    D = A.getSessionsURL()
+    drivers_object_list = list()
+
+    for data in Drivers_List_Data:
+        drivers_object_list.append(Driver(data))
+        
+    drivers_object_manager = tuple(drivers_object_list)
+
+    for driver in drivers_object_manager:
+        driver.findActualStint()
+        driver.findActualLap()
+   
+    for driver in drivers_object_manager:
+        print(driver.acronym)
+        print(driver.stint_number)
+        print(driver.lap_number)
+        print('\n')
     
-    E = A.receiveData(C)
-    F = A.receiveData(D)
- 
-    KKK = A.getGPHead(E,F)
-    
-    B = A.getURL()
-    data = A.receiveData(B)
-    A.set_data(data)
-    pilotos = A.countDrivers()
-    print(pilotos) 
-    equipos = A.countTeams()
-    print(equipos)
-    lista = A.getDriversDict()
-    print(lista)    
-'''

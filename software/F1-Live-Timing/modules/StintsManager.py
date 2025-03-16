@@ -6,18 +6,21 @@ class Stints(GetStintsURL):
 
 
     def findActualStint(self):
-        self.setDriver(self.number)
+        self.setDriverStints(self.number)
         self.setLastStint(self.stint_number)
+        
         stint_URL = self.getStintsURL()
         data = self.receiveData(stint_URL)
         len_data = len(data)
 
-        if(len_data > 0):
+        if(len_data > 1):
             self.stint_number = len_data
     
     
-    def lastStintInfo(self): 
+    def lastStintInfo(self):
+        self.setDriverStints(self.number)
         self.setLastStint(self.stint_number)
+
         stint_URL = self.getStintsURL()
         data = self.receiveData(stint_URL)
         

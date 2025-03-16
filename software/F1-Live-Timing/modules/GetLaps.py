@@ -5,8 +5,8 @@ class GetLapsURL(ReceiveMasterAPI):
         super().__init__()
         self.laps_URL = 'laps'
         self.driver_number_URL = '&driver_number='
-        self.lap_number_URL = '&lap_number>'
-   
+        self.lap_number_URL = '&lap_number>'  
+        self.general_path_laps = self.main_URL + self.laps_URL + self.session_key
 
     def setDriver(self, driver_number):
         self.driver_number = str(driver_number)
@@ -17,6 +17,5 @@ class GetLapsURL(ReceiveMasterAPI):
     
 
     def getLapsURL(self):
-        self.general_path = self.main_URL + self.laps_URL + self.session_key
-        self.specific_path = self.driver_number_URL + self.driver_number + self.lap_number_URL + self.lap_number
-        return self.general_path + self.specific_path
+        self.specific_path_laps = self.driver_number_URL + self.driver_number + self.lap_number_URL + self.lap_number
+        return self.general_path_laps + self.specific_path_laps

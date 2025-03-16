@@ -23,5 +23,5 @@ class Driver(Laps, Stints):
         prev_lap.append(self.speed_trap)
         prev_lap.append(self.compound)
         prev_lap.append(self.tyre_age)
-
+        prev_lap.append(self.pit_out)
         self.previous_laps.append(prev_lap)

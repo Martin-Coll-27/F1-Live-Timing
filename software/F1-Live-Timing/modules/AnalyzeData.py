@@ -24,7 +24,7 @@ class AnalyzeDriversData():
         return cant_teams
     
 
-    def getDriversList(self):
+    def getDriversTuple(self):
         drivers_data = list()
         
         for piloto in self.data:
@@ -34,4 +34,5 @@ class AnalyzeDriversData():
 
             drivers_data.append((team, number, driver))
         
+        drivers_data = tuple(drivers_data)
         return drivers_data

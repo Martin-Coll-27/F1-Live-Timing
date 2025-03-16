@@ -31,5 +31,5 @@ class Information(GetSessions, GetMeetings, AnalyzeGP, GetDrivers, AnalyzeDriver
         self.drivers_num = self.countDrivers()
         self.teams_num = self.countTeams()
     
-        drivers_list = self.getDriversList()
-        return drivers_list
+        drivers_tuple = self.getDriversTuple()
+        return drivers_tuple
